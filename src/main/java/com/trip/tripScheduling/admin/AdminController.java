@@ -1,9 +1,11 @@
-package com.example.rhelTest.admin;
+package com.trip.tripScheduling.admin;
 
-import com.example.rhelTest.station.Station;
-import com.example.rhelTest.trip.Trip;
+
+import com.trip.tripScheduling.station.Station;
+import com.trip.tripScheduling.trip.Trip;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -41,10 +43,16 @@ public class AdminController {
         adminService.signIn(admin);
     }
 
+    @PostMapping(path = "/signUp")
+    public void signUp(@RequestBody Admin admin)
+    {
+        adminService.signUp(admin);
+    }
+
     @PutMapping(path = "/updateTrip/{id}")
     public void updateTrip(@PathVariable("id") long id,
-                           @RequestParam(required = false) String startTime,
-                           @RequestParam(required = false) String endTime,
+                           @RequestParam(required = false) LocalDateTime startTime,
+                           @RequestParam(required = false) LocalDateTime endTime,
                            @RequestParam(required = false) Station fromStation,
                            @RequestParam(required = false) Station toStation
     ) {

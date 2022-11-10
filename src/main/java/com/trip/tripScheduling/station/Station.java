@@ -1,6 +1,6 @@
-package com.example.rhelTest.station;
+package com.trip.tripScheduling.station;
 
-import com.example.rhelTest.trip.Trip;
+import com.trip.tripScheduling.trip.Trip;
 import jakarta.persistence.*;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.rhelTest.admin;
+package com.trip.tripScheduling.admin;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,10 @@
 package com.trip.tripScheduling.trip;
-
-import com.example.rhelTest.station.Station;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.trip.tripScheduling.station.Station;
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
+
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -11,8 +14,10 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long tripId;
-    private String startTime;
-    private String endTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime startTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime endTime;
     @ManyToOne(
             cascade = CascadeType.ALL // Solve the error of "object references an unsaved transient instance"
             /*
@@ -31,7 +36,7 @@ public class Trip {
     public Trip() {
     }
 
-    public Trip(String startTime, String endTime, Station fromStation, Station toStation) {
+    public Trip(LocalDateTime startTime, LocalDateTime endTime, Station fromStation, Station toStation) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.fromStation = fromStation;
@@ -42,19 +47,19 @@ public class Trip {
         return tripId;
     }
 
-    public String getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 

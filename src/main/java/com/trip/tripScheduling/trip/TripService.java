@@ -1,6 +1,5 @@
 package com.trip.tripScheduling.trip;
-
-import com.example.rhelTest.station.Station;
+import com.trip.tripScheduling.station.Station;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class TripService {
     }
 
     @Transactional
-    public void updateTrip(long id, String startTime, String endTime, Station fromStation, Station toStation) {
+    public void updateTrip(long id, LocalDateTime startTime, LocalDateTime endTime, Station fromStation, Station toStation) {
         Trip trip = tripRepository.findById(id).orElseThrow(
                 () -> new IllegalStateException("Sorry, this Trip isn't found!")
         );

@@ -1,7 +1,5 @@
 package com.trip.tripScheduling.trip;
-
-
-import com.example.rhelTest.station.Station;
+import com.trip.tripScheduling.station.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +29,8 @@ public class TripController {
 
     @PutMapping(path = "{tripId}")
     public void updateTrip(@PathVariable("tripId") long id,
-                           @RequestParam(required = false) String startTime,
-                           @RequestParam(required = false) String endTime,
+                           @RequestParam(required = false) LocalDateTime startTime,
+                           @RequestParam(required = false) LocalDateTime endTime,
                            @RequestParam(required = false) Station fromStation,
                            @RequestParam(required = false) Station toStation) {
         tripService.updateTrip(id, startTime, endTime, fromStation, toStation);

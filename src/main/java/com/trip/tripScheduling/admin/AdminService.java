@@ -1,15 +1,13 @@
 package com.trip.tripScheduling.admin;
-
-import com.example.rhelTest.station.Station;
-import com.example.rhelTest.station.StationService;
-import com.example.rhelTest.trip.Trip;
-import com.example.rhelTest.trip.TripService;
-import jakarta.transaction.Transactional;
+import com.trip.tripScheduling.station.Station;
+import com.trip.tripScheduling.station.StationService;
+import com.trip.tripScheduling.trip.Trip;
+import com.trip.tripScheduling.trip.TripService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -31,7 +29,7 @@ public class AdminService {
         tripService.storeTrip(trip);
     }
 
-    public void updateTrip(long id, String startTime, String endTime, Station fromStation, Station toStation)
+    public void updateTrip(long id, LocalDateTime startTime, LocalDateTime endTime, Station fromStation, Station toStation)
     {
         tripService.updateTrip(id, startTime, endTime, fromStation, toStation);
     }
@@ -53,13 +51,22 @@ public class AdminService {
 
     public void signIn(Admin admin) {
         Admin adminObj = adminRepository.findById(1L).orElseThrow(() -> new IllegalStateException("No Admin Credentials Found!"));
-        System.out.println(adminObj.getEmail());
-        System.out.println(adminObj.getPassword());
-        System.out.println(admin.getEmail());
-        System.out.println(admin.getPassword());
         if (!admin.getEmail().equals(adminObj.getEmail()) || !admin.getPassword().equals(adminObj.getPassword()))
         {
             throw new IllegalStateException("No Admin Credentials Found!");
+        }
+    }
+
+    public void signUp(Admin admin) {
+        boolean adminExists = adminRepository.existsById(1L);
+        if(!adminExists)
+        {
+            adminRepository.save(
+                    admin
+            );
+        }
+        else {
+            throw new IllegalStateException("Admin Already Exists!");
         }
     }
 }
