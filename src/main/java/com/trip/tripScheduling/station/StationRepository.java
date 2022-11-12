@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface StationRepository extends JpaRepository<Station, Long> {
 
     @Query("SELECT t FROM Station t WHERE t.name = ?1")
-    Optional<Station> findStationByName(String name);
+    Station findStationByName(String name);
 }

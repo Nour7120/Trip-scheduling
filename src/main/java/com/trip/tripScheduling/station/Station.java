@@ -10,7 +10,8 @@ import java.util.List;
 public class Station {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long stationId;
+    @Column(name = "stationId")
+    private Long id;
     private String name;
     @OneToMany(mappedBy = "fromStation", cascade = CascadeType.ALL)
     private List<Trip> tripsFromStation;
@@ -25,7 +26,7 @@ public class Station {
     }
 
     public Long getStationId() {
-        return stationId;
+        return id;
     }
 
     public String getName() {

@@ -29,7 +29,7 @@ public class AdminService {
         tripService.storeTrip(trip);
     }
 
-    public void updateTrip(long id, LocalDateTime startTime, LocalDateTime endTime, Station fromStation, Station toStation)
+    public void updateTrip(long id, LocalDateTime startTime, LocalDateTime endTime, String fromStation, String toStation)
     {
         tripService.updateTrip(id, startTime, endTime, fromStation, toStation);
     }

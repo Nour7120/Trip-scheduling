@@ -13,7 +13,8 @@ public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tripId;
+    @Column(name = "tripId")
+    private long id;
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime startTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,7 +45,7 @@ public class Trip {
     }
 
     public long getTripId() {
-        return tripId;
+        return id;
     }
 
     public LocalDateTime getStartTime() {

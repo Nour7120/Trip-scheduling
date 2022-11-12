@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/admin")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AdminController {
 
     private final AdminService adminService;
@@ -53,8 +54,8 @@ public class AdminController {
     public void updateTrip(@PathVariable("id") long id,
                            @RequestParam(required = false) LocalDateTime startTime,
                            @RequestParam(required = false) LocalDateTime endTime,
-                           @RequestParam(required = false) Station fromStation,
-                           @RequestParam(required = false) Station toStation
+                           @RequestParam(required = false) String fromStation,
+                           @RequestParam(required = false) String toStation
     ) {
         adminService.updateTrip(id, startTime, endTime, fromStation, toStation);
     }

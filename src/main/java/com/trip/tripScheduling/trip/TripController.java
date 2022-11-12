@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/trip")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TripController {
 
     private final TripService tripService;
@@ -31,8 +32,8 @@ public class TripController {
     public void updateTrip(@PathVariable("tripId") long id,
                            @RequestParam(required = false) LocalDateTime startTime,
                            @RequestParam(required = false) LocalDateTime endTime,
-                           @RequestParam(required = false) Station fromStation,
-                           @RequestParam(required = false) Station toStation) {
+                           @RequestParam(required = false) String fromStation,
+                           @RequestParam(required = false) String toStation) {
         tripService.updateTrip(id, startTime, endTime, fromStation, toStation);
     }
 

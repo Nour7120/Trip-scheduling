@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -23,8 +22,8 @@ public class StationService {
     }
 
     public void storeStation(Station station) {
-        Optional<Station> stationOptional = stationRepository.findStationByName(station.getName());
-        if (stationOptional.isPresent())
+        Station stationOptional = stationRepository.findStationByName(station.getName());
+        if (stationOptional != null)
         {
             throw new IllegalStateException("Sorry, this Station is already stored!");
         }
@@ -36,8 +35,8 @@ public class StationService {
         Station station = stationRepository.findById(id).orElseThrow(
                 () -> new IllegalStateException("Sorry, this Station isn't found!")
         );
-        Optional<Station> optionalStation = stationRepository.findStationByName(name);
-        if (optionalStation.isPresent())
+        Station optionalStation = stationRepository.findStationByName(name);
+        if (optionalStation != null)
         {
             throw new IllegalStateException("Sorry, this Station is already stored!");
         }
