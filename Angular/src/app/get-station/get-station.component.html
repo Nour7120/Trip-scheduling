@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header">
+    <h2>show the stations</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+       <input type="submit" value="show the stations" (click)=" get_station()">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="table-representitive">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th><h3>station id</h3></th>
+          <th><h2>station name</h2></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Station of Stations">
+          <td>
+            {{Station.stationId}}
+          </td>
+          <td>
+            {{Station.name}}
+          </td>
+        </tr>
+      </tbody>
