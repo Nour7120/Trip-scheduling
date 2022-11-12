@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <h2>show the trips</h2>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <input type="submit" value="show the trips" (click)=" get_trip()">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="table-representitive">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th>trip id</th>
+          <th>start time</th>
+          <th>end time</th>
+          <th>from station</th>
+          <th>to station</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Trip of Trips">
+          <td>{{Trip.tripId}}</td>
+          <td>
+            {{Trip.startTime}}
+          </td>
+          <td>{{Trip.endTime}}</td>
+          <td>{{Trip.fromStation.name}}</td>
+          <td>{{Trip.toStation.name}}</td>
+        </tr>
+      </tbody>

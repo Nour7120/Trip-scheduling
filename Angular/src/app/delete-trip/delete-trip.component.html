@@ -1,0 +1,25 @@
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">delete trip by id</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <section id="login-form" class="form" action="" method="delete">
+                            <h3 class="text-center text-info">delete operation</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">trip id</label><br>
+                                <input type="text"  class="form-control" [(ngModel)]="Trip.tripId">
+                            </div>
+                            <div class="form-group">
+                                <input (click)="delete_trip(Trip.tripId)" type="submit" name="delete" class="btn btn-info btn-md" value="delete" >
+                            </div>
+                            <div id="register-link" class="text-right">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

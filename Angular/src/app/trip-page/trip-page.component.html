@@ -1,0 +1,81 @@
+<section class="vh-100" style="background-color: #2779e2;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+
+        <h1 class="text-white mb-4">trip page</h1>
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">select</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <button class="form-control form-control-lg"  [routerLink]="[ '/addTrip' ]"><a [routerLink]="[ '/addTrip' ]">create a trip</a></button>
+
+              </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">select</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <button class="form-control form-control-lg"  [routerLink]="[ '/getTrip' ]"><a [routerLink]="[ '/getTrip' ]">get scheduled trips</a></button>
+
+              </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">select</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+<!--
+                <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea> -->
+                <button class="form-control" rows="3" [routerLink]="[ '/updateTrip' ]"><a [routerLink]="[ '/updateTrip' ]">update a trip</a></button>
+
+              </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+
+                <h6 class="mb-0">select</h6>
+
+              </div>
+              <div class="col-md-9 pe-5">
+
+                <button class="form-control form-control-lg" [routerLink]="[ '/deleteTrip' ]"><a [routerLink]="[ '/deleteTrip' ]">delete trip by id</a></button>
+              </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="px-5 py-4">
+              <label class="btn btn-primary btn-lg">thanks</label>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
