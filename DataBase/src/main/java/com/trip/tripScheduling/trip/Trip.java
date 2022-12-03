@@ -1,8 +1,7 @@
 package com.trip.tripScheduling.trip;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.trip.tripScheduling.station.Station;
 import jakarta.persistence.*;
-import org.springframework.lang.NonNull;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,5 @@
 package com.trip.tripScheduling.trip;
+
 import com.trip.tripScheduling.station.Station;
 import com.trip.tripScheduling.station.StationRepository;
 import jakarta.transaction.Transactional;
@@ -7,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TripService {
@@ -18,7 +18,7 @@ public class TripService {
     @Autowired
     public TripService(TripRepository tripRepository, StationRepository stationRepository) {
         this.tripRepository = tripRepository;
-        this.stationRepository =stationRepository;
+        this.stationRepository = stationRepository;
     }
 
     public List<Trip> getTrips() {
@@ -34,18 +34,18 @@ public class TripService {
         Trip trip = tripRepository.findById(id).orElseThrow(
                 () -> new IllegalStateException("Sorry, this Trip isn't found!")
         );
-        if (startTime.equals(null)) trip.setStartTime(startTime);
+        if (!startTime.equals(null)) trip.setStartTime(startTime);
         if (!endTime.equals(null)) trip.setEndTime(endTime);
         if (fromStation != "") {
             Station station = stationRepository.findStationByName(fromStation);
-            if(station == null)
+            if (station == null)
                 trip.setFromStation(new Station(fromStation));
             else
                 trip.setFromStation(station);
         }
         if (toStation != "") {
             Station station = stationRepository.findStationByName(toStation);
-            if(station == null)
+            if (station == null)
                 trip.setToStation(new Station(toStation));
             else
                 trip.setToStation(station);

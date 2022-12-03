@@ -1,5 +1,5 @@
 package com.trip.tripScheduling.trip;
-import com.trip.tripScheduling.station.Station;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
