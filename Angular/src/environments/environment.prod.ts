@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   //@ts-ignore
-  apiUrl: window["env"]["apiUrl"] || "default",
+  //apiUrl: window["env"]["apiUrl"] || "default",
   //@ts-ignore
-  debug: window["env"]["debug"] || true
+ // debug: window["env"]["debug"] || true
 }

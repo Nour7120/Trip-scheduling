@@ -13,15 +13,15 @@ export class StationService {
   constructor(private http:HttpClient) { }
 
   getAllStations(): Observable<Station[]>{
-    return this.http.get<Station[]>(environment.apiUrl + `/station`);
+    return this.http.get<Station[]>(`https://trip-scheduling-2back-trip-scheduling-2.apps.eu410.prod.nextcle.com/api/v1/station`);
   }
   createStation(Station:Station): Observable<Object>{
-    return this.http.post<Station>(environment.apiUrl + `/station`,Station);
+    return this.http.post<Station>(`https://trip-scheduling-2back-trip-scheduling-2.apps.eu410.prod.nextcle.com/api/v1/station`,Station);
   }
   deleteStation(id:number): Observable<any>{
-    return this.http.delete(environment.apiUrl + `/station/${id}`);
+    return this.http.delete(`https://trip-scheduling-2back-trip-scheduling-2.apps.eu410.prod.nextcle.com/api/v1/station/${id}`);
   }
   updateStation(id:number,Station:Station):Observable<any>{
-    return this.http.put<Station>(environment.apiUrl + `/station/${id}?name=${Station.name}`, null);
+    return this.http.put<Station>(`https://trip-scheduling-2back-trip-scheduling-2.apps.eu410.prod.nextcle.com/api/v1/station/${id}?name=${Station.name}`, null);
   }
 }
